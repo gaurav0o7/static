@@ -3,17 +3,13 @@ pipeline{
         stages {
             stage('Lint HTML'){
                 steps {
-                    sh 'tidy -q -e *.html'
+                    sh 'tidy -q -e *.html"'
+                    sh '''
+                        echo "Multiline shell steps works too"
+                        ls -lah
+                        '''
                 }
             }
-            stage('Upload to AWS') {
-                steps {
-                    retry(3){
-                        withAWS(region:'us-east-1', credentials:'aws-static'){
-                        s3Upload(file:'index.html', bucket:'jenkins-gauav-bucket', path:'')
-                    }                             
-                }
-            }
+            
         }
     }
-}
