@@ -1,11 +1,9 @@
 <!doctype html>
-pipeline {
-  agent any
-  stages {
-    stage(‘Lint HTML’) {
-      steps {
-        sh ‘tidy -q -e *.html’
-      }
-    }
-  }
-}
+<html>
+  <head>
+    <title>Static HTML Site</title>
+  </head>
+  <body>
+    <p>This is the first paragraph in a simple Static HTML site. There is no <strong>CSS</strong> or <strong>JavaScript</strong>.</p>
+  </body>
+</html>
